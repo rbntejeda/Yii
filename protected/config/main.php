@@ -8,7 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
-
+    'aliases' => array(
+        'bootstrap' => 'ext.bootstrap'
+    ),
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -16,22 +18,29 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-	),
+        'bootstrap.behaviors.*',
+        'bootstrap.helpers.*',
+        'bootstrap.widgets.*'),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123456',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array(
+                'bootstrap.gii'
+            )
 		),
-		*/
 	),
 
 	// application components
 	'components'=>array(
+		'bootstrap' => array(
+            'class' => 'bootstrap.components.BsApi'
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
