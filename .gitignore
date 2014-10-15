@@ -1,0 +1,6 @@
+assets/*
+!assets/
+protected/runtime/*
+!protected/runtime/.gitignore
+framework/*
+!framework/.gitignore
